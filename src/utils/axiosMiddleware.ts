@@ -22,7 +22,12 @@ api.interceptors.request.use((config: any) => {
   //   "https://hcateringback-dev.unitbeandev.com"
   // ).toString();
 
-  config.url = new URL(config.url, `${proxyUrl}${backendUrl}`).toString();
+  // config.url = new URL(config.url, `${proxyUrl}${backendUrl}`).toString();
+  if (!config.url?.startsWith("http")) {
+    config.url = `${proxyUrl}${backendUrl}${config.url}`;
+  } else {
+    config.url = `${proxyUrl}${config.url}`;
+  }
 
   return config;
 });
