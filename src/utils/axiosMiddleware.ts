@@ -28,6 +28,7 @@ api.interceptors.request.use((config: any) => {
   } else {
     config.url = `${proxyUrl}${config.url}`;
   }
+  config.headers["Origin"] = window.location.origin;
 
   return config;
 });
