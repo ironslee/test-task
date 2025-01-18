@@ -23,13 +23,7 @@ export const nomenclatureSlice = createSlice({
     setSelectedItem: (state, action: PayloadAction<ApiItemResponse | null>) => {
       state.selectedItem = action.payload;
     },
-    clearStore: (state) => {
-      state = {
-        ...initialState,
-      };
-
-      return state;
-    },
+    clearStore: () => initialState,
   },
 });
 

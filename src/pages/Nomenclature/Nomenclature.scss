@@ -11,9 +11,35 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
-
+  gap: 16px;
+  flex-wrap: wrap;
   padding: 16px;
   margin-bottom: 16px;
+
+  @media (max-width: 1010px) {
+    justify-content: space-around;
+
+    .search-and-actions {
+      flex-direction: column;
+      width: 90%;
+      gap: 8px;
+
+      input {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .ant-btn-primary {
+        width: 30%;
+        min-width: 150px;
+      }
+
+      .button-wrap {
+        justify-content: flex-end;
+      }
+    }
+  }
 
   h1 {
     display: flex;
@@ -46,10 +72,11 @@
 
   .search-and-actions {
     display: flex;
-    gap: 12px;
+    gap: 16px;
+    align-items: flex-end;
 
     .ant-input-affix-wrapper {
-      max-width: 300px;
+      min-width: 300px;
       height: 40px;
 
       &:hover {
@@ -164,12 +191,15 @@
   color: #fff !important;
 }
 
-.ant-input-suffix .ant-input-clear-icon .anticon {
-  color: #a85757 !important;
+.ant-input-suffix {
+  max-width: 10%;
+  .ant-input-clear-icon .anticon {
+    color: #a85757 !important;
 
-  &:hover {
-    svg {
-      fill: #a85757;
+    &:hover {
+      svg {
+        fill: #a85757;
+      }
     }
   }
 }
@@ -192,4 +222,16 @@
 
 .column-actions {
   width: 5%;
+}
+
+.pagination-container {
+  @media (max-width: 700px) {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+
+    .ant-pagination {
+      align-self: center;
+    }
+  }
 }

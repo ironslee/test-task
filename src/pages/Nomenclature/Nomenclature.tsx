@@ -178,16 +178,24 @@ const Nomenclature = (): JSX.Element => {
             onChange={onChangeSearchField}
             allowClear={{
               clearIcon: (
-                <CloseOutlined style={{ color: "#a85757", fontSize: "15px" }} />
+                <CloseOutlined
+                  style={{
+                    color: "#a85757",
+                    fontSize: "15px",
+                    width: "100%",
+                  }}
+                />
               ),
             }}
           />
-          <UpsertItemButton
-            onChangeModal={onChangeModal}
-            isOpen={isOpen}
-            selectedItem={selectedItem}
-            refetchItems={loadData}
-          />
+          <Flex className="button-wrap" style={{ width: "100%" }}>
+            <UpsertItemButton
+              onChangeModal={onChangeModal}
+              isOpen={isOpen}
+              selectedItem={selectedItem}
+              refetchItems={loadData}
+            />
+          </Flex>
         </Flex>
       </Flex>
 
@@ -205,6 +213,7 @@ const Nomenclature = (): JSX.Element => {
         style={{
           padding: "16px 0",
         }}
+        className="pagination-container"
       >
         <Pagination
           total={data?.total || 0}
