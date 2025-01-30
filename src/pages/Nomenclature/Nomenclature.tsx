@@ -155,6 +155,15 @@ const Nomenclature = (): JSX.Element => {
     }
   };
 
+  const onChangePage = (page: number) => {
+    dispatch(
+      nomenclatureSlice.actions.setTableConfig({
+        ...tableConfig,
+        page,
+      })
+    );
+  };
+
   const onChangeModal = (item?: ApiItemResponse) => {
     if (item) {
       setSelectedItem(item);
@@ -219,6 +228,8 @@ const Nomenclature = (): JSX.Element => {
           total={data?.total || 0}
           pageSize={tableConfig.limit}
           showSizeChanger={false}
+          onChange={onChangePage}
+          current={tableConfig.page}
         />
         <Flex align="center" gap="small">
           <span
